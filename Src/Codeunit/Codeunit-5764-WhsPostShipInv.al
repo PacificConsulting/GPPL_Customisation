@@ -5,6 +5,9 @@ codeunit 50026 WhsePostShipInvExtCstm
 
     end;
 
+
+
+
     var
         myInt: Integer;
 }

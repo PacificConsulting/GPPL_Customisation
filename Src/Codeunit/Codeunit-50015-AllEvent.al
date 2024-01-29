@@ -91,7 +91,8 @@ codeunit 50015 AllEventSubscriberCustm
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Prod. Order Status Management", 'OnBeforeChangeStatusOnProdOrder', '', false, false)]
     local procedure CheckingQcTest(var ProductionOrder: Record "Production Order")
     begin
-        ProductionOrder.TESTFIELD(ProductionOrder."QC Tested");   //EBT/QC Func/0001
+        if ProductionOrder.Status = ProductionOrder.Status::Released then /// MY PC added on 29 01 2024
+            ProductionOrder.TESTFIELD(ProductionOrder."QC Tested");   //EBT/QC Func/0001
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Prod. Order Status Management", 'OnTransProdOrderOnBeforeToProdOrderInsert', '', false, false)]
